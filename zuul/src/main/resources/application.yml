@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: zuul
+server:  
+  port: 11100
+  ssl:
+    enabled: true
+    key-store: classpath:zuul2.jks
+    key-store-password: password
+    key-alias: zuul
+    
+security:
+  require-ssl: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:11000/eureka/ 
+zuul:
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  host:
+    socket-timeout-millis: 30000
+  sslHostnameValidationEnabled: false
+ribbon:
+  IsSecured: true
+  ConnectTimeout:  10000
+  ReadTimeout:  10000
+  eureka:
+    enabled: true
+  TrustStore: classpath:zuul2.jks
+  TrustStorePassword : password
+  IsHostnameValidationRequired: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

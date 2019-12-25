@@ -1,0 +1,23 @@
+server:  
+  port: 11101
+  ssl:
+    enabled: true
+    key-store: classpath:banka.jks
+    key-store-password: password
+    key-alias: banka
+security:
+  require-ssl: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:11000/eureka/
+spring:
+  application:
+    name: banka

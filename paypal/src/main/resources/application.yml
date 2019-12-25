@@ -1,0 +1,23 @@
+server:  
+  port: 11102
+  ssl:
+    enabled: true
+    key-store: classpath:paypal.jks
+    key-store-password: password
+    key-alias: paypal
+security:
+  require-ssl: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:11000/eureka/
+spring:
+  application:
+    name: paypal

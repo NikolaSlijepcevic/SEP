@@ -1,0 +1,23 @@
+server:  
+  port: 11103
+  ssl:
+    enabled: true
+    key-store: classpath:bitcoin.jks
+    key-store-password: password
+    key-alias: bitcoin
+security:
+  require-ssl: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:11000/eureka/
+spring:
+  application:
+    name: bitcoin

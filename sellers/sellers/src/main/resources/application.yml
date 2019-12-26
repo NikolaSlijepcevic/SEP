@@ -1,0 +1,28 @@
+spring:
+   application:
+      name: sellers
+server:
+   port: 8500
+   ssl:
+    client-auth: need
+    enabled: true
+    key-store: classpath:sellers.jks
+    key-store-password: password
+    key-alias: sellers
+    trust-store: classpath:sellers.jks
+    trust-store-password: password
+security:
+  require-ssl: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: false
+    nonSecurePortEnabled: false
+    securePortEnabled: true
+    securePort: ${server.port}
+  client:
+    securePortEnabled: true
+    serviceUrl:
+      defaultZone: https://localhost:11000/eureka/
+
+   

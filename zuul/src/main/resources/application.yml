@@ -20,7 +20,7 @@ eureka:
     securePort: ${server.port}
   client:
     securePortEnabled: true
-    serviceUrl:
+    service-url:
       defaultZone: https://localhost:11000/eureka/ 
 zuul:
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin

@@ -23,3 +23,5 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+    service-url:
+      defaultZone: https://localhost:11000/eureka

@@ -9,6 +9,12 @@ public class Seller {
 		super();
 	}
 	
+	public Seller(String paypalClientId, String paypalSecret) {
+		super();
+		this.paypalClientId = paypalClientId;
+		this.paypalSecret = paypalSecret;
+	}
+
 	public String getPaypalClientId() {
 		return paypalClientId;
 	}
